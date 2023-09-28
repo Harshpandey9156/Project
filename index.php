@@ -63,7 +63,6 @@ $_SESSION['username']=$_username;
     <title>Website with login Page</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="script.js">
-    <link rel="stylesheet" href="javascript.js">
 </head>
 <body>
 
@@ -85,11 +84,6 @@ $_SESSION['username']=$_username;
 
         <div class="form-box login">
             <h2>Login</h2>
-
-            <input type="text" id="username" placeholder="Username" />
-            <input type="password" id="password" placeholder="Password" />
-             <button onclick="login()">Login</button>
-
             <form method="post" action="login.php">
                 <div class="input-box">
                     <span class="icon"><ion-icon name="mail"></ion-icon></span>
