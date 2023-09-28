@@ -72,7 +72,7 @@ $_SESSION['username']=$_username;
             <a href ="#">Home</a>
             <a href ="#">about</a>
             <a href ="#">service</a>
-            <a href ="#">contact</a>
+            <a href ="helppage.html">contact</a>
             <button class="btmLogin-popup">Login</button>
         </nav>
     </header>
@@ -151,7 +151,44 @@ $_SESSION['username']=$_username;
         <script src="script.js"></script>
         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+<script>
 
+// Function to handle login
+function login() {
+  const username = prompt('Enter your username:');
+  if (username) {
+    localStorage.setItem('loggedInUser', username);
+    updateUI();
+  }
+}
+
+// Function to handle logout
+function logout() {
+  localStorage.removeItem('loggedInUser');
+  updateUI();
+}
+
+// Function to update UI based on login state
+function updateUI() {
+  const loginDisplay = document.getElementById('loginDisplay');
+  const usernameDisplay = document.getElementById('usernameDisplay');
+  const loggedInUsername = document.getElementById('loggedInUsername');
+
+  if (localStorage.getItem('loggedInUser')) {
+    const username = localStorage.getItem('loggedInUser');
+    loginDisplay.classList.add('hidden');
+    usernameDisplay.classList.remove('hidden');
+    loggedInUsername.textContent = username;
+  } else {
+    loginDisplay.classList.remove('hidden');
+    usernameDisplay.classList.add('hidden');
+    loggedInUsername.textContent = '';
+  }
+}
+
+// Check if user is already logged in on page load
+window.addEventListener('load', updateUI);
+</script>
     
 </body>
 </html>
